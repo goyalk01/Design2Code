@@ -93,7 +93,7 @@ export function Contact() {
   };
 
   const inputClasses = (field: keyof FormData) =>
-    `w-full px-4 py-3 rounded-[14px] bg-[var(--bg-tertiary)] border text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition-all duration-300 focus:outline-none focus:border-[var(--accent-gold)] ${
+    `min-w-0 w-full px-4 py-3 rounded-[14px] bg-[var(--bg-tertiary)] border text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition-all duration-300 focus:outline-none focus:border-[var(--accent-gold)] ${
       touched[field] && errors[field]
         ? 'border-red-500'
         : 'border-[var(--card-border)]'
@@ -162,6 +162,7 @@ export function Contact() {
                     <div>
                       <input
                         type="text"
+                        suppressHydrationWarning
                         placeholder="Your Name"
                         value={formData.name}
                         onChange={(e) => handleChange('name', e.target.value)}
@@ -180,6 +181,7 @@ export function Contact() {
                     <div>
                       <input
                         type="email"
+                        suppressHydrationWarning
                         placeholder="Your Email"
                         value={formData.email}
                         onChange={(e) => handleChange('email', e.target.value)}
@@ -199,6 +201,7 @@ export function Contact() {
                   <div>
                     <input
                       type="text"
+                      suppressHydrationWarning
                       placeholder="Subject"
                       value={formData.subject}
                       onChange={(e) => handleChange('subject', e.target.value)}
@@ -217,6 +220,7 @@ export function Contact() {
                   <div>
                     <textarea
                       placeholder="Your Message"
+                      suppressHydrationWarning
                       rows={5}
                       value={formData.message}
                       onChange={(e) => handleChange('message', e.target.value)}

@@ -19,20 +19,19 @@ export function Experience() {
 
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline line */}
-          <FadeIn direction="down" duration={1.5} className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-[var(--card-border)]">
+          <FadeIn direction="down" duration={1.5} className="absolute left-3 md:left-8 top-0 bottom-0 w-px bg-[var(--card-border)]">
             <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-gold)] via-[var(--accent-gold)]/50 to-transparent" />
           </FadeIn>
 
           <StaggerReveal className="space-y-12" staggerDelay={0.15}>
             {experiences.map((exp) => (
-              <StaggerItem key={exp.id} className="relative pl-8 md:pl-20">
+              <StaggerItem key={exp.id} className="relative pl-10 md:pl-20">
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-8 top-2 -translate-x-1/2">
-                  <div className={`w-4 h-4 rounded-full border-2 ${
-                    exp.isCurrent
+                <div className="absolute left-3 md:left-8 top-2 -translate-x-1/2">
+                  <div className={`w-4 h-4 rounded-full border-2 ${exp.isCurrent
                       ? 'bg-[var(--accent-gold)] border-[var(--accent-gold)] shadow-[0_0_12px_rgba(212,175,55,0.4)]'
                       : 'bg-[var(--bg-primary)] border-[var(--card-border)]'
-                  }`} />
+                    }`} />
                 </div>
 
                 {/* Date */}
@@ -46,7 +45,7 @@ export function Experience() {
                 <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 hover:border-[rgba(212,175,55,0.15)] transition-colors duration-300">
                   <div className="flex items-start justify-between flex-wrap gap-2 mb-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                      <h3 className="text-lg font-semibold text-[var(--text-primary)] break-words min-w-0">
                         {exp.role}
                         <span className="text-[var(--text-muted)] font-normal"> · {exp.company}</span>
                       </h3>

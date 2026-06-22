@@ -70,11 +70,11 @@ export function Testimonials() {
                       {testimonial.name.charAt(0)}
                     </span>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[var(--text-primary)]">
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-[var(--text-primary)] truncate">
                       {testimonial.name}
                     </p>
-                    <p className="text-xs text-[var(--text-muted)]">
+                    <p className="text-xs text-[var(--text-muted)] truncate">
                       {testimonial.position}
                     </p>
                   </div>
@@ -101,6 +101,7 @@ export function Testimonials() {
           <div className="hidden md:flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
+              suppressHydrationWarning
               className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
               aria-label="Previous testimonial"
             >
@@ -113,6 +114,7 @@ export function Testimonials() {
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
+                  suppressHydrationWarning
                   className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     index === current
                       ? 'bg-[var(--accent-gold)] w-6'
@@ -125,6 +127,7 @@ export function Testimonials() {
 
             <button
               onClick={next}
+              suppressHydrationWarning
               className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
               aria-label="Next testimonial"
             >

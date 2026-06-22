@@ -75,6 +75,7 @@ export function Projects() {
             {projectCategories.map((category) => (
               <button
                 key={category}
+                suppressHydrationWarning
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
                   activeCategory === category
@@ -152,7 +153,7 @@ export function Projects() {
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-gold)] transition-colors duration-300 flex items-start justify-between gap-2">
-                      {project.title}
+                      <span className="break-words min-w-0">{project.title}</span>
                       <ArrowUpRight className="w-4 h-4 shrink-0 text-[var(--text-muted)] group-hover:text-[var(--accent-gold)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 mt-0.5" />
                     </h3>
                     <p className="text-sm text-[var(--text-muted)] mb-4 line-clamp-2 leading-relaxed flex-1">

@@ -105,15 +105,17 @@ export function Footer() {
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
+                suppressHydrationWarning
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
                 required
-                className="flex-1 px-3 py-2.5 text-sm rounded-xl bg-[var(--bg-tertiary)] border border-[var(--card-border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-gold)] focus:outline-none transition-colors duration-300"
+                className="flex-1 min-w-0 px-3 py-2.5 text-sm rounded-xl bg-[var(--bg-tertiary)] border border-[var(--card-border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-gold)] focus:outline-none transition-colors duration-300"
                 aria-label="Email for newsletter"
               />
               <button
                 type="submit"
+                suppressHydrationWarning
                 className="px-3 py-2.5 rounded-xl bg-[var(--accent-gold)] text-[#050505] hover:bg-[var(--accent-gold-hover)] transition-colors duration-300 cursor-pointer"
                 aria-label="Subscribe to newsletter"
               >
@@ -137,6 +139,7 @@ export function Footer() {
             </span>
             <button
               onClick={scrollToTop}
+              suppressHydrationWarning
               className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--accent-gold)]/10 border border-[var(--accent-gold)]/20 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)] hover:text-[#050505] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
               aria-label="Scroll to top"
             >

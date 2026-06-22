@@ -89,6 +89,7 @@ export function CommandPalette() {
           <div className="flex items-center gap-3 px-4 border-b border-[var(--card-border)]">
             <Search className="w-5 h-5 text-[var(--text-muted)] shrink-0" />
             <input
+              suppressHydrationWarning
               ref={inputRef}
               type="text"
               value={query}
@@ -98,6 +99,7 @@ export function CommandPalette() {
               aria-label="Search commands"
             />
             <button
+              suppressHydrationWarning
               onClick={() => { setIsOpen(false); setQuery(''); }}
               className="text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
               aria-label="Close command palette"
@@ -116,6 +118,7 @@ export function CommandPalette() {
                 {items.map((item) => (
                   <button
                     key={item.id}
+                    suppressHydrationWarning
                     onClick={item.action}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] transition-colors duration-150 cursor-pointer"
                   >

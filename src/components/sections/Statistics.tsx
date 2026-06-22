@@ -64,7 +64,7 @@ export function Statistics() {
                   <span className="text-[var(--accent-gold)]">{stat.suffix}</span>
                 </div>
                 {/* Label */}
-                <p className="text-xs sm:text-sm font-medium text-[var(--text-muted)] uppercase tracking-widest mt-2">
+                <p className="text-xs sm:text-sm font-medium text-[var(--text-muted)] uppercase tracking-widest mt-2 break-words leading-snug">
                   {stat.label}
                 </p>
               </div>

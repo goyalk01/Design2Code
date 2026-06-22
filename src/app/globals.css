@@ -60,7 +60,7 @@
   --text-secondary: #E5E5E5;
   --text-muted: #8A8A96;
   --gradient-gold: linear-gradient(135deg, #B8941E 0%, #F0D060 40%, #F7E98E 60%, #D4AF37 100%);
-  --gradient-mesh: 
+  --gradient-mesh:
     radial-gradient(ellipse at 20% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
     radial-gradient(ellipse at 80% 15%, rgba(212, 175, 55, 0.07) 0%, transparent 45%),
     radial-gradient(ellipse at 60% 90%, rgba(100, 80, 200, 0.04) 0%, transparent 50%),
@@ -85,17 +85,23 @@
   --text-muted: #52525B;
   --gradient-gold: linear-gradient(135deg, #C9A227 0%, #E5D478 50%, #C9A227 100%);
   --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(201, 162, 39, 0.06) 0%, transparent 50%),
-                   radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.04) 0%, transparent 50%),
-                   radial-gradient(ellipse at 50% 80%, rgba(100, 100, 255, 0.02) 0%, transparent 50%);
+    radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(100, 100, 255, 0.02) 0%, transparent 50%);
   color-scheme: light;
 }
 
 /* ============================================
    BASE STYLES
    ============================================ */
-* {
-  margin: 0;
-  padding: 0;
+
+/* box-sizing only — Tailwind v4 preflight already
+   handles margin/padding reset. Duplicating it here
+   causes component spacing utilities (mb-4, space-y-4,
+   gap-*, etc.) to be zeroed out, making every text
+   element stack directly on top of each other. */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -112,32 +118,43 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  overflow-wrap: break-word;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ============================================
    TYPOGRAPHY
    ============================================ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--text-primary);
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: clamp(1.15rem, 2vw, 1.75rem);
   font-weight: 600;
+  line-height: 1.3;
 }
 
 /* ============================================
@@ -259,18 +276,19 @@ h3 {
    ============================================ */
 .gold-glow {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.15),
-              0 4px 24px rgba(0, 0, 0, 0.4);
+    0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .light .gold-glow {
   box-shadow: 0 0 20px rgba(201, 162, 39, 0.12),
-              0 4px 24px rgba(0, 0, 0, 0.08);
+    0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================
    REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -287,18 +305,23 @@ h3 {
 .project-thumb-1 {
   background: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 50%, #0d1624 100%);
 }
+
 .project-thumb-2 {
   background: linear-gradient(135deg, #1a0f2e 0%, #2d1a4a 50%, #160d24 100%);
 }
+
 .project-thumb-3 {
   background: linear-gradient(135deg, #0f2e1a 0%, #1a4a2d 50%, #0d2416 100%);
 }
+
 .project-thumb-4 {
   background: linear-gradient(135deg, #2e1a0f 0%, #4a2d1a 50%, #24160d 100%);
 }
+
 .project-thumb-5 {
   background: linear-gradient(135deg, #2e0f1a 0%, #4a1a2d 50%, #240d16 100%);
 }
+
 .project-thumb-6 {
   background: linear-gradient(135deg, #0f2e2e 0%, #1a4a4a 50%, #0d2424 100%);
 }
@@ -307,7 +330,16 @@ h3 {
    STAT CARD GLOW
    ============================================ */
 .stat-card-glow {
-  background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(20,20,23,0.8) 100%);
-  border: 1px solid rgba(212,175,55,0.15);
-  box-shadow: 0 0 40px rgba(212,175,55,0.05), inset 0 1px 0 rgba(255,255,255,0.04);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(20, 20, 23, 0.8) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ============================================
+   SCROLL ANCHOR OFFSET
+   Prevents fixed navbar (h-20 = 80px) from
+   covering section headings on anchor scroll.
+   ============================================ */
+section[id] {
+  scroll-margin-top: 80px;
 }

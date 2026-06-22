@@ -52,11 +52,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? 'bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-[var(--card-border)]/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)]'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <nav className="container-custom flex items-center justify-between h-20" aria-label="Main navigation">
         {/* Logo */}
@@ -66,14 +65,14 @@ export function Navbar() {
             e.preventDefault();
             handleNavClick('#home');
           }}
-          className="flex items-center gap-2 text-xl font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] hover:text-[var(--accent-gold)] transition-colors duration-300"
+          className="flex items-center gap-2 text-xl font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] hover:text-[var(--accent-gold)] transition-colors duration-300 min-w-0 shrink"
         >
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-[var(--accent-gold)]">
             <rect width="32" height="32" rx="8" fill="currentColor" fillOpacity="0.1" />
             <path d="M10 22L16 10L22 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             <line x1="12.5" y1="18" x2="19.5" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          {siteConfig.name}
+          <span className="truncate max-w-[140px] sm:max-w-none">{siteConfig.name}</span>
         </a>
 
         {/* Desktop Nav */}
@@ -86,11 +85,10 @@ export function Navbar() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full ${
-                activeSection === item.href.replace('#', '')
+              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full ${activeSection === item.href.replace('#', '')
                   ? 'text-[var(--accent-gold)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
+                }`}
             >
               {item.label}
               {activeSection === item.href.replace('#', '') && (
@@ -131,11 +129,10 @@ export function Navbar() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`lg:hidden fixed inset-x-0 top-20 bg-[var(--bg-primary)]/95 backdrop-blur-2xl border-b border-[var(--card-border)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          isMobileMenuOpen
+        className={`lg:hidden fixed inset-x-0 top-20 bg-[var(--bg-primary)]/95 backdrop-blur-2xl border-b border-[var(--card-border)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-h-[calc(100vh-80px)] overflow-y-auto ${isMobileMenuOpen
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 -translate-y-4 pointer-events-none'
-        }`}
+          }`}
       >
         <div className="container-custom py-6 flex flex-col gap-2">
           {navItems.map((item) => (
@@ -146,11 +143,10 @@ export function Navbar() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
-                activeSection === item.href.replace('#', '')
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${activeSection === item.href.replace('#', '')
                   ? 'text-[var(--accent-gold)] bg-[rgba(212,175,55,0.08)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]'
-              }`}
+                }`}
             >
               {item.label}
             </a>

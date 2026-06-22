@@ -6,7 +6,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from '@/componen
 import dynamic from 'next/dynamic';
 const HeroScene = dynamic(() => import('@/components/sections/HeroScene').then(mod => mod.HeroScene), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 rounded-full" style={{background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)'}} />,
+  loading: () => <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)' }} />,
 });
 import { FadeIn } from '@/components/animations/FadeIn';
 import { ArrowRight } from 'lucide-react';
@@ -33,16 +33,16 @@ export function Hero() {
           backgroundSize: '40px 40px',
         }}
       />
-      
+
       {/* Large ambient glow behind right side */}
       <div className="absolute right-0 top-0 w-[700px] h-[700px] pointer-events-none"
-        style={{background: 'radial-gradient(ellipse at 80% 30%, rgba(212,175,55,0.07) 0%, transparent 60%)'}}
+        style={{ background: 'radial-gradient(ellipse at 80% 30%, rgba(212,175,55,0.07) 0%, transparent 60%)' }}
       />
 
-      <div className="container-custom relative z-10 pt-28 pb-16">
+      <div className="container-custom relative z-10 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column — Content */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <FadeIn direction="up" delay={0.1}>
               {/* Availability Badge */}
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[rgba(34,197,94,0.07)] border border-[rgba(34,197,94,0.18)] mb-8">
@@ -59,7 +59,7 @@ export function Hero() {
             <FadeIn direction="up" delay={0.2}>
               {/* Greeting + Name */}
               <p className="text-base sm:text-lg text-[var(--text-muted)] mb-1 font-medium">Hi, I&apos;m</p>
-              <h1 className="mb-0 leading-none">
+              <h1 className="mb-0 leading-none break-words">
                 <span className="gradient-text">{siteConfig.name}</span>
               </h1>
             </FadeIn>
@@ -118,14 +118,14 @@ export function Hero() {
           </div>
 
           {/* Right Column — Hero 3D Visual */}
-          <div className="order-1 lg:order-2 flex items-center justify-center">
+          <div className="order-2 lg:order-2 flex items-center justify-center">
             <FadeIn direction="left" delay={0.3} className="w-full">
               <div className="relative w-full max-w-[480px] mx-auto aspect-square">
                 {/* Outer decorative orbits */}
                 <div className="absolute inset-0 rounded-full border border-[var(--card-border)]/15 animate-[spin_60s_linear_infinite]" />
                 <div className="absolute inset-8 rounded-full border border-[var(--accent-gold)]/8 animate-[spin_40s_linear_infinite_reverse]" />
                 <div className="absolute inset-16 rounded-full border border-[var(--card-border)]/10 animate-[spin_25s_linear_infinite]" />
-                
+
                 {/* Three.js canvas */}
                 <HeroScene />
 

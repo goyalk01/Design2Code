@@ -52,7 +52,7 @@ export function Blog() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-gold)] transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-gold)] transition-colors duration-300 break-words">
                     {post.title}
                   </h3>
                   

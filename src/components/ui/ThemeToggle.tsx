@@ -17,6 +17,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
+        suppressHydrationWarning
         className="relative w-10 h-10 rounded-full flex items-center justify-center bg-[var(--bg-tertiary)] border border-[var(--card-border)]"
         aria-label="Toggle theme"
       >
@@ -27,6 +28,7 @@ export function ThemeToggle() {
 
   return (
     <button
+      suppressHydrationWarning
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="relative w-10 h-10 rounded-full flex items-center justify-center bg-[var(--bg-tertiary)] border border-[var(--card-border)] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer group"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
