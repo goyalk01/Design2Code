@@ -109,15 +109,18 @@ export function Contact() {
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
       {/* Premium gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--bg-primary)]" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.04)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[var(--bg-primary)]" />
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.06)_0%,transparent_65%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse,rgba(100,80,200,0.04)_0%,transparent_65%)] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <FadeIn direction="up">
           {/* Top CTA Banner */}
-          <div className="mb-16 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="mb-16 relative bg-gradient-to-br from-[var(--card-bg)] to-[var(--bg-tertiary)] border border-[var(--card-border)] rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden">
+            {/* Banner glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" />
             <div>
-              <span className="text-sm text-[var(--text-muted)] uppercase tracking-wider font-medium">
+              <span className="text-xs text-[var(--accent-gold)] uppercase tracking-[0.2em] font-medium font-[family-name:var(--font-mono)]">
                 Let&apos;s Work Together
               </span>
               <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">

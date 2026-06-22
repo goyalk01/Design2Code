@@ -49,20 +49,22 @@
    ============================================ */
 :root {
   --bg-primary: #050505;
-  --bg-secondary: #090909;
-  --bg-tertiary: #0F0F0F;
-  --card-bg: #18181B;
-  --card-border: #27272A;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #111113;
+  --card-bg: #141417;
+  --card-border: #2A2A2E;
   --accent-gold: #D4AF37;
   --accent-gold-hover: #E5C44D;
   --accent-silver: #D6D6D6;
   --text-primary: #FFFFFF;
   --text-secondary: #E5E5E5;
-  --text-muted: #A1A1AA;
-  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F5E6A3 50%, #D4AF37 100%);
-  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                   radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                   radial-gradient(ellipse at 50% 80%, rgba(100, 100, 255, 0.03) 0%, transparent 50%);
+  --text-muted: #8A8A96;
+  --gradient-gold: linear-gradient(135deg, #B8941E 0%, #F0D060 40%, #F7E98E 60%, #D4AF37 100%);
+  --gradient-mesh: 
+    radial-gradient(ellipse at 20% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 15%, rgba(212, 175, 55, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 90%, rgba(100, 80, 200, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 5% 95%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
   color-scheme: dark;
 }
 
@@ -209,8 +211,8 @@ h3 {
    SECTION SPACING
    ============================================ */
 .section-padding {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 @media (min-width: 768px) {
@@ -222,8 +224,8 @@ h3 {
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 140px;
+    padding-bottom: 140px;
   }
 }
 
@@ -241,14 +243,14 @@ h3 {
    GLASSMORPHISM
    ============================================ */
 .glass {
-  background: rgba(24, 24, 27, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(39, 39, 42, 0.5);
+  background: rgba(20, 20, 23, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(42, 42, 46, 0.6);
 }
 
 .light .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(228, 228, 231, 0.5);
 }
 
@@ -277,4 +279,35 @@ h3 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================
+   PROJECT THUMBNAIL GRADIENTS
+   ============================================ */
+.project-thumb-1 {
+  background: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 50%, #0d1624 100%);
+}
+.project-thumb-2 {
+  background: linear-gradient(135deg, #1a0f2e 0%, #2d1a4a 50%, #160d24 100%);
+}
+.project-thumb-3 {
+  background: linear-gradient(135deg, #0f2e1a 0%, #1a4a2d 50%, #0d2416 100%);
+}
+.project-thumb-4 {
+  background: linear-gradient(135deg, #2e1a0f 0%, #4a2d1a 50%, #24160d 100%);
+}
+.project-thumb-5 {
+  background: linear-gradient(135deg, #2e0f1a 0%, #4a1a2d 50%, #240d16 100%);
+}
+.project-thumb-6 {
+  background: linear-gradient(135deg, #0f2e2e 0%, #1a4a4a 50%, #0d2424 100%);
+}
+
+/* ============================================
+   STAT CARD GLOW
+   ============================================ */
+.stat-card-glow {
+  background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(20,20,23,0.8) 100%);
+  border: 1px solid rgba(212,175,55,0.15);
+  box-shadow: 0 0 40px rgba(212,175,55,0.05), inset 0 1px 0 rgba(255,255,255,0.04);
 }

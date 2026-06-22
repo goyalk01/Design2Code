@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: 'Your Name',
+  role: 'Web Developer',
   title: 'Your Name — Web Developer',
   description:
     'I build modern, responsive and user-friendly websites that help businesses grow.',

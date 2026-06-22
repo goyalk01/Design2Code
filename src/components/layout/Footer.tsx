@@ -51,8 +51,10 @@ export function Footer() {
   );
 
   return (
-    <footer className="bg-[var(--bg-secondary)] border-t border-[var(--card-border)]">
-      <div className="container-custom section-padding">
+    <footer className="relative bg-[var(--bg-secondary)]">
+      {/* Top gradient separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-gold)]/30 to-transparent" />
+      <div className="container-custom py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Column 1: Logo + Tagline + Socials */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -129,13 +131,18 @@ export function Footer() {
           <p className="text-sm text-[var(--text-muted)]">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <button
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--bg-tertiary)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-[var(--text-muted)]/50 font-[family-name:var(--font-mono)]">
+              Built with Next.js & ♥
+            </span>
+            <button
+              onClick={scrollToTop}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--accent-gold)]/10 border border-[var(--accent-gold)]/20 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)] hover:text-[#050505] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

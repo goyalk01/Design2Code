@@ -62,8 +62,9 @@ export function Skills() {
   return (
     <section id="skills" className="section-padding bg-[var(--bg-secondary)] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(ellipse,rgba(212,175,55,0.04)_0%,transparent_70%)]" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[radial-gradient(ellipse,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.04)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-gold)]/15 to-transparent" />
 
       <div className="container-custom relative z-10">
         <FadeIn direction="up">
@@ -76,8 +77,8 @@ export function Skills() {
         <StaggerReveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
           {skills.map((skill, index) => (
             <StaggerItem key={skill.name}>
-              <Card glass className="p-6 text-center group cursor-pointer h-full">
-                <div className="relative mb-4 mx-auto w-20 h-20 flex items-center justify-center">
+              <Card glass className="p-5 text-center group cursor-pointer h-full">
+                <div className="relative mb-3 mx-auto w-20 h-20 flex items-center justify-center">
                   {/* Progress ring */}
                   <svg className="absolute inset-0 w-20 h-20 -rotate-90" viewBox="0 0 80 80">
                     <circle
@@ -86,7 +87,7 @@ export function Skills() {
                       r="35"
                       fill="none"
                       stroke="var(--card-border)"
-                      strokeWidth="3"
+                      strokeWidth="2.5"
                     />
                     <motion.circle
                       cx="40"
@@ -94,14 +95,14 @@ export function Skills() {
                       r="35"
                       fill="none"
                       stroke={skill.color}
-                      strokeWidth="3"
+                      strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeDasharray={`${2 * Math.PI * 35}`}
                       initial={{ strokeDashoffset: 2 * Math.PI * 35 }}
                       whileInView={{ strokeDashoffset: 2 * Math.PI * 35 * (1 - skill.level / 100) }}
                       viewport={{ once: true, margin: '-50px' }}
-                      transition={{ duration: 1.5, delay: index * 0.1, ease: 'easeOut' }}
-                      style={{ opacity: 0.7 }}
+                      transition={{ duration: 1.5, delay: index * 0.08, ease: 'easeOut' }}
+                      style={{ opacity: 0.8 }}
                     />
                   </svg>
                   <div className="group-hover:scale-110 transition-transform duration-300">
@@ -111,12 +112,9 @@ export function Skills() {
                 <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-1">
                   {skill.name}
                 </h3>
-                <p className="text-xs text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {skill.category}
-                </p>
-                <p className="text-xs text-[var(--accent-gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {skill.yearsOfExperience}+ years
-                </p>
+                <div className="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs font-mono text-[var(--accent-gold)]">{skill.level}%</span>
+                </div>
               </Card>
             </StaggerItem>
           ))}
