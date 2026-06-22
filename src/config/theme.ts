@@ -1,0 +1,26 @@
+export const themeColors = {
+  dark: {
+    backgroundPrimary: '#050505',
+    backgroundSecondary: '#090909',
+    backgroundTertiary: '#0F0F0F',
+    cardBackground: '#18181B',
+    cardBorder: '#27272A',
+    accentGold: '#D4AF37',
+    accentSilver: '#D6D6D6',
+    textPrimary: '#FFFFFF',
+    textSecondary: '#E5E5E5',
+    textMuted: '#A1A1AA',
+  },
+  light: {
+    backgroundPrimary: '#FAFAFA',
+    backgroundSecondary: '#FFFFFF',
+    backgroundTertiary: '#F4F4F5',
+    cardBackground: '#FFFFFF',
+    cardBorder: '#E4E4E7',
+    accentGold: '#C9A227',
+    accentSilver: '#6B7280',
+    textPrimary: '#111111',
+    textSecondary: '#374151',
+    textMuted: '#52525B',
+  },
+} as const;
