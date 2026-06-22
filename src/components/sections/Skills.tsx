@@ -7,6 +7,8 @@ import { StaggerReveal, StaggerItem } from '@/components/animations/StaggerRevea
 import { FadeIn } from '@/components/animations/FadeIn';
 import { motion } from 'framer-motion';
 import { skills } from '@/data/skills';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 function SkillIcon({ name }: { name: string }) {
   const icons: Record<string, React.ReactNode> = {
@@ -59,11 +61,30 @@ function SkillIcon({ name }: { name: string }) {
 }
 
 export function Skills() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isLight = mounted && currentTheme === 'light';
+
+  // Adjust colors for better contrast in light mode
+  const getSkillColor = (color: string, name: string) => {
+    if (!isLight) return color;
+    // Darken yellow and light blue for light mode
+    if (name === 'JavaScript') return '#D4B800';
+    if (name === 'React') return '#00A0D1';
+    return color;
+  };
+
   return (
     <section id="skills" className="section-padding bg-[var(--bg-secondary)] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,175,55,0.04)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-[0.06] bg-[radial-gradient(ellipse,var(--accent-gold)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.04] bg-[radial-gradient(ellipse,var(--accent-gold)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-gold)]/15 to-transparent" />
 
       <div className="container-custom relative z-10">
@@ -94,7 +115,7 @@ export function Skills() {
                       cy="40"
                       r="35"
                       fill="none"
-                      stroke={skill.color}
+                      stroke={getSkillColor(skill.color, skill.name)}
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeDasharray={`${2 * Math.PI * 35}`}

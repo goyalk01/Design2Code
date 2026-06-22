@@ -8,8 +8,20 @@ import { blogPosts } from '@/data/blog';
 import { ArrowRight, Clock } from 'lucide-react';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { StaggerReveal, StaggerItem } from '@/components/animations/StaggerReveal';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export function Blog() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isLight = mounted && currentTheme === 'light';
+
   return (
     <section id="blog" className="section-padding">
       <div className="container-custom">
@@ -25,9 +37,9 @@ export function Blog() {
             <StaggerItem key={post.id}>
               <Card glass className="h-full flex flex-col group cursor-pointer overflow-hidden">
                 {/* Image Placeholder */}
-                <div className="relative h-48 sm:h-56 bg-[var(--bg-tertiary)] overflow-hidden shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-gold)]/10 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-110 transition-transform duration-500">
+                <div className={`relative h-48 sm:h-56 ${isLight ? 'bg-[var(--bg-secondary)]' : 'bg-[var(--bg-tertiary)]'} overflow-hidden shrink-0`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${isLight ? 'from-[var(--accent-gold)]/5' : 'from-[var(--accent-gold)]/10'} to-transparent`} />
+                  <div className={`absolute inset-0 flex items-center justify-center ${isLight ? 'opacity-20' : 'opacity-30'} group-hover:scale-110 transition-transform duration-500`}>
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[var(--text-primary)]">
                       <rect x="3" y="3" width="18" height="18" rx="2" />
                       <path d="M3 9h18" />

@@ -4,11 +4,16 @@ import { ArrowUp, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from '@/components/ui/SocialIcons';
 import { siteConfig } from '@/config/site';
 import { footerQuickLinks, footerServices, footerResources } from '@/constants/nav';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -105,7 +110,6 @@ export function Footer() {
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
-                suppressHydrationWarning
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
@@ -115,7 +119,6 @@ export function Footer() {
               />
               <button
                 type="submit"
-                suppressHydrationWarning
                 className="px-3 py-2.5 rounded-xl bg-[var(--accent-gold)] text-[#050505] hover:bg-[var(--accent-gold-hover)] transition-colors duration-300 cursor-pointer"
                 aria-label="Subscribe to newsletter"
               >
@@ -131,7 +134,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-[var(--card-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[var(--text-muted)]">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            &copy; {year ?? '—'} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-3">
             <span className="text-xs text-[var(--text-muted)]/50 font-[family-name:var(--font-mono)]">
@@ -139,7 +142,6 @@ export function Footer() {
             </span>
             <button
               onClick={scrollToTop}
-              suppressHydrationWarning
               className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--accent-gold)]/10 border border-[var(--accent-gold)]/20 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)] hover:text-[#050505] hover:border-[var(--accent-gold)] transition-all duration-300 cursor-pointer"
               aria-label="Scroll to top"
             >

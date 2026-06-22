@@ -39,10 +39,10 @@ export function Card({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative rounded-[20px] border border-[var(--card-border)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-[0_2px_16px_rgba(0,0,0,0.3)]',
+        'relative rounded-[20px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
         glass
-          ? 'bg-[rgba(20,20,23,0.7)] backdrop-blur-xl'
-          : 'bg-[var(--card-bg)]',
+          ? 'glass'
+          : 'bg-[var(--card-bg)] border border-[var(--card-border)] shadow-[0_2px_16px_rgba(0,0,0,0.3)]',
         hoverLift && 'hover:-translate-y-2 hover:scale-[1.015]',
         isHovered && 'border-[rgba(212,175,55,0.25)] shadow-[0_0_30px_rgba(212,175,55,0.12),0_8px_32px_rgba(0,0,0,0.5)]',
         className

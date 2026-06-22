@@ -335,6 +335,12 @@ h3 {
   box-shadow: 0 0 40px rgba(212, 175, 55, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+.light .stat-card-glow {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.04) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border: 1px solid rgba(228, 228, 231, 0.8);
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
 /* ============================================
    SCROLL ANCHOR OFFSET
    Prevents fixed navbar (h-20 = 80px) from
